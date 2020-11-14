@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const Data =(props) => {
+const Data =({data}) => {
 
     return (
-        <div></div>
+        <div>
+            {data}
+        </div>
     )
 }
 export default Data;
