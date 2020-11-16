@@ -1,45 +1,37 @@
-import React, { useState, useEffect  } from "react";
-import { useForm } from "react-hook-form";
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+import React from "react";
 
-const token = window.localStorage.getItem('token')
-const headers = {
-    "Content-Type":"application/json",
-    "Authorization":`Bearer ${token}`
+// import Map from "./Map";
+import '../sass/Dashboard.scss'
+
+
+
+const Dashboard =({setFilter}) => {
+  // const [sort, setSortBy] = useState('')
+    
+  const onChange = (e) => {
+    setFilter(e.target.value);
   }
-const options = {return_columns: "no",return_dataset: "yes"}
-
-const Dashboard =() => {
-    const[dataset, setDataset] = useState([])
-    const { register, handleSubmit } = useForm({
-        mode: "onBlur"
-      });
-    const onSubmit = (data) => {
-     
-        axiosWithAuth()
-        .post('/ez_fetch', {...data ,options:options}, {headers:headers})
-        .then((res)=> {
-           setDataset(res.data)
-        })
-        .catch(err=>console.log(err))
-      
-      };
-    console.log(dataset)
+ 
     return (
-        <div>
-            Welcome to your Dashboard
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div className ="Dashboard">
+            <form >
             <div>
-              <label htmlFor="dataset_id">Please enter your DataSet ID</label>
-              <input
-                name="dataset_id"
-                id="dataset_id"
-                placeholder="dataset_id"
-                ref={register({ minLength: 1 })}
-              />
-              <input type="submit" id="submit"/>
+              
+              <label htmlFor="order">Year:</label>
+			        &nbsp;
+			        <select name="order" onChange={onChange}  >
+			          <option value="2013">2013</option>
+			          <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+			        </select>
+              
             </div>
             </form>
+          {/* <Map /> */}
         </div>
     )
 }
