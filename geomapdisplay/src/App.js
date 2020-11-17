@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
+import { Switch, Route } from "react-router-dom"
+
+
+import Dashboard from './components/Pages/Dashboard'
+import FireList from './components/Fire/FireList'
+import FireInfo from './components/Fire/FireInfo'
+
+
 import data from './caliFiresIncident'
-
-
-import Dashboard from './components/Dashboard'
-import Fire from './components/Fire'
-
 import './sass/App.scss';
 
 
@@ -12,20 +15,21 @@ import './sass/App.scss';
 
 function App() {
   const [filter, setFilter] =useState(2013)
-  const[dataset, setDataset] = useState(data)
-  console.log(dataset)
+  const dataset = data
+ 
   
 
   return (
     <div className="App">
-      <Dashboard setFilter={setFilter}/>
-      {dataset.filter((fire) => fire.ArchiveYear == filter).map(fire => (
-				<Fire
-					key={fire.UniqueId}
-					fire={fire}
-					
-        />
-      ))}
+      <Switch>
+        <Route exact path="/">
+          <Dashboard setFilter={setFilter}/>
+          <FireList dataset={dataset} filter={filter} />
+        </Route>
+        <Route path = "/:UniqueId">
+          <FireInfo fires={dataset} />
+        </Route>
+      </Switch>  
     </div>
   );
 }

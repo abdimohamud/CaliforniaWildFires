@@ -1,7 +1,7 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import LocationPin from './LocationPin'
-import '../sass/Map.scss'
+import '../../sass/Map.scss'
 
 const location = {
     address: '1600 Amphitheatre Parkway, Mountain View, california.',
