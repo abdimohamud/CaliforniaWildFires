@@ -10,7 +10,8 @@ const Dashboard = ({ setFilter, filter }) => {
     // setFilter({...filter, [name]:value});
   };
   return (
-    <div className="Dashboard">
+   <nav class="navbar navbar-light bg-light" style={{display:'flex', flexDirection:'column', marginBottom:'20px'}}>
+       <div>
       <form>
         <div>
           <h1>California WildFire Incidents </h1>
@@ -46,6 +47,7 @@ const Dashboard = ({ setFilter, filter }) => {
         </div>
       </form>
     </div>
+    </nav>
   );
 };
 export default Dashboard;

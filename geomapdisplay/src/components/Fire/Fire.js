@@ -10,7 +10,7 @@ const Fire = ({ fire }) => {
   return (
 
 
-<div className="card" style={{minWidth: "23rem", marginBottom:'10px'}}>
+<div className="card" style={{minWidth: "23rem", marginBottom:'20px', marginLeft:'20px', marginRight:'20px'}}>
 
   
    <Link to={`/${fire.UniqueId}`}><h5 className="card-title">{fire.Name}</h5></Link> 
