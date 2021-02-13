@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import data from "../../caliFiresIncident";
-import "../../sass/FireInfo.scss";
+// import "../../sass/FireInfo.scss";
 import imagery from "../../assets/external.svg";
 import back from "../../assets/back.svg";
 
@@ -11,10 +11,9 @@ const FireInfo = () => {
   const { UniqueId } = useParams();
   const fire = data.find((thing) => `${thing.UniqueId}` === UniqueId);
   return (
-    <div className="fireInfo">
-      <div className="fireInfoTitle">
-        <div className="heading">
-          <div className="links">
+      <div class="jumbotron">
+          <span>
+
             <Link to="/" style={{ textDecoration: "none" }}>
               <img
                 src={back}
@@ -23,37 +22,34 @@ const FireInfo = () => {
                 style={{ height: "100px", width: "77.39px" }}
               />
             </Link>
-          </div>
-          <h1>
-            {fire.Name} ({fire.Counties} County)
-          </h1>
-          <h3>Acres Burned : {fire.AcresBurned} </h3>
-          <a href={`https://www.fire.ca.gov${fire.CanonicalUrl}`}>
-            <img
-              src={imagery}
-              className="iconChat"
-              alt="Icon chat"
-              style={{ height: "100px", width: "77.39px" }}
-            />
-          </a>
-        </div>
-        <Map
-          AcresBurned={fire.AcresBurned}
-          Latitude={fire.Latitude}
-          Longitude={fire.Longitude}
-          Location={fire.Location}
-        />
-      </div>
-      <div className="firedetails">
-        <h3>Response Unit : {fire.AdminUnit}</h3>
-        <h3>
-          Latitude : {fire.Latitude} Longitude : {fire.Longitude}
-        </h3>
-        <h3>Start Time : {fire.Started}</h3>
-        <h3>Extinguished : {fire.Extinguished}</h3>
-        <h3>Location : {fire.Location}</h3>
-      </div>
-    </div>
+  <h1 class="display-4">{fire.Name} ({fire.Counties} County)</h1>
+          </span>
+  {/* <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> */}
+  <hr class="my-4"/>
+  <div style={{display:'flex', justifyContent:'space-evenly'}}>
+  <span style={{display:'flex', flexDirection:'column', justifyContent:'inherit'}}>
+                <p>Acres Burned : {fire.AcresBurned} </p>
+  <p>Response Unit : {fire.AdminUnit}</p>
+  <p>
+    Latitude : {fire.Latitude} Longitude : {fire.Longitude}
+  </p>
+  <p>Start Time : {fire.Started}</p>
+  <p>Extinguished : {fire.Extinguished}</p>
+  <p>Location : {fire.Location}</p>
+   </span>
+                <span><Map
+                  AcresBurned={fire.AcresBurned}
+                  Latitude={fire.Latitude}
+                  Longitude={fire.Longitude}
+                  Location={fire.Location}
+                />
+      
+  <a class="btn btn-primary btn-lg" href={`https://www.fire.ca.gov${fire.CanonicalUrl}`} role="button">Learn more</a>
+</span>
+</div>
+</div>
+  
+    
   );
 };
 export default FireInfo;

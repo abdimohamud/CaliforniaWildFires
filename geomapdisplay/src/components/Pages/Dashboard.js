@@ -1,17 +1,21 @@
 import React from "react";
-import '../../sass/Dashboard.scss'
+// import '../../sass/Dashboard.scss'
 
 
 
-const Dashboard = ({ setFilter }) => {
+const Dashboard = ({ setFilter, filter }) => {
   const onChange = (e) => {
-    setFilter(e.target.value);
+      const {name, value} = e.target
+      setFilter(value)
+    // setFilter({...filter, [name]:value});
   };
   return (
     <div className="Dashboard">
       <form>
         <div>
           <h1>California WildFire Incidents </h1>
+          <div style={{display:'flex', justifyContent:'space-evenly'}}>
+          <span >
           <label>(From 2013-2020)</label>
           <label htmlFor="order"></label>
           &nbsp;
@@ -24,6 +28,21 @@ const Dashboard = ({ setFilter }) => {
             <option value="2018">2018</option>
             <option value="2019">2019</option>
           </select>
+        </span>
+
+        <span>
+            <label>Filter By:</label>
+          <select name="order" onChange={onChange}>&#8595;
+              <option value="azUP">A-Z &#8593;</option>
+              <option value="azDown">A-Z &#8595;</option>
+              <option value="start_time">Start Time</option>
+              <option value="extinguish_time">Extinguish Time</option>
+          </select> 
+        </span>
+          </div>
+          
+          {/* &nbsp;
+          */}
         </div>
       </form>
     </div>
