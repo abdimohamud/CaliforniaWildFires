@@ -14,7 +14,7 @@ import './index.css'
 
 
 function App() {
-  const [filter, setFilter] =useState(2013)
+  const [filter, setFilter] =useState({year:2013})
   const dataset = data
  
   

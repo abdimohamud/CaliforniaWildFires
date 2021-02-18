@@ -6,8 +6,17 @@ import React from "react";
 const Dashboard = ({ setFilter, filter }) => {
   const onChange = (e) => {
       const {name, value} = e.target
-      setFilter(value)
-    // setFilter({...filter, [name]:value});
+      if (name=="year"){
+         setFilter({ [name]:value}); 
+      }
+    
+  };
+
+  const onOrderChange = (e) => {
+      const {name, value} = e.target
+        if (name=="order"){
+         setFilter({ [name]:value}); 
+      }
   };
   return (
    <nav class="navbar navbar-light bg-light" style={{display:'flex', flexDirection:'column', marginBottom:'20px'}}>
@@ -20,7 +29,7 @@ const Dashboard = ({ setFilter, filter }) => {
           <label>(From 2013-2020)</label>
           <label htmlFor="order"></label>
           &nbsp;
-          <select name="order" onChange={onChange}>
+          <select name="year" onChange={onChange}>
             <option value="2013">2013</option>
             <option value="2014">2014</option>
             <option value="2015">2015</option>
@@ -33,9 +42,9 @@ const Dashboard = ({ setFilter, filter }) => {
 
         <span>
             <label>Filter By:</label>
-          <select name="order" onChange={onChange}>&#8595;
+          <select name="order" onChange={onOrderChange}>&#8595;
               <option value="azUP">A-Z &#8593;</option>
-              <option value="azDown">A-Z &#8595;</option>
+              {/* <option value="azDown">A-Z &#8595;</option> */}
               <option value="start_time">Start Time</option>
               <option value="extinguish_time">Extinguish Time</option>
           </select> 
