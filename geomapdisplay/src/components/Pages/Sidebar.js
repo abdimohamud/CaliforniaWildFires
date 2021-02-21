@@ -9,17 +9,17 @@ export default props => {
         Home
       </a>
 
-      <a className="menu-item" href="/burgers">
-        Burgers
+      <a className="menu-item" href="https://github.com/abdimohamud/CaliforniaWildFires/tree/newversion">
+        Link To Source Repo
       </a>
 
-      <a className="menu-item" href="/pizzas">
-        Pizzas
+      <a className="menu-item" href="https://www.kaggle.com/ananthu017/california-wildfire-incidents-20132020">
+        Link to Data
+      </a>
+      <a className="menu-item" href="https://github.com/abdimohamud/">
+        Github
       </a>
 
-      <a className="menu-item" href="/desserts">
-        Desserts
-      </a>
     </Menu>
   );
 };

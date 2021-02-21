@@ -6,7 +6,7 @@ import React from "react";
 const Dashboard = ({ setFilter, filter }) => {
   const onChange = (e) => {
       const {name, value} = e.target
-      if (name=="year"){
+      if (name==="year"){
          setFilter({ [name]:value}); 
       }
     
@@ -14,7 +14,7 @@ const Dashboard = ({ setFilter, filter }) => {
 
   const onOrderChange = (e) => {
       const {name, value} = e.target
-        if (name=="order"){
+        if (name==="order"){
          setFilter({ [name]:value}); 
       }
   };
