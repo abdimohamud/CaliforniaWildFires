@@ -1,0 +1,49 @@
+.fireInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    .fireInfoTitle{
+      width: 50%;
+      border-radius: 25px;
+      background-color: aqua;
+  
+      .heading{
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        .links{
+          display: flex;
+          justify-content: space-between;
+          
+        
+        }
+        
+          p {
+              font-size: 90px;       
+            }
+          
+          
+          h1{
+              text-align: center
+            }
+          h3{
+              text-align: center
+            }
+      }  
+    
+    }
+      .firedetails{
+        width:50%;
+        border-radius: 25px;
+        background-color: brown;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        h3{
+          text-align: center
+        }
+      }
+  }
+  
+  
