@@ -38,10 +38,11 @@ const FireInfo = () => {
   <p>Location : {fire.Location}</p>
    </span>
                 <span><Map
-                  AcresBurned={fire.AcresBurned}
-                  Latitude={fire.Latitude}
-                  Longitude={fire.Longitude}
-                  Location={fire.Location}
+                
+                  acresBurned={fire.AcresBurned}
+                  latitude={fire.Latitude}
+                  longitude={fire.Longitude}
+                  location={fire.Location}
                 />
       
   <a className="btn btn-primary btn-lg" href={`https://www.fire.ca.gov${fire.CanonicalUrl}`} role="button">Learn more</a>

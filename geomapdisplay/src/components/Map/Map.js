@@ -3,23 +3,33 @@ import GoogleMapReact from 'google-map-react'
 import LocationPin from './LocationPin'
 import '../../sass/Map.scss'
 
-const location = {
+
+const zoomLevel =17
+
+
+const Map = ({acresBurned, latitude, longitude, location}) => {
+  const deflocation = {
     address: '1600 Amphitheatre Parkway, Mountain View, california.',
     lat: 37.42216,
     lng: -122.08427,
     center:{ lat: 37.422,
         lng: -122.084,}
   }
-const zoomLevel =17
-
-
-const Map = () => {
+  const spot = {
+    address: location,
+    lat: latitude,
+    lng: longitude,
+    center:{ lat: latitude,
+        lng: longitude}
+  }
+  console.log(acresBurned, latitude, longitude, location)
+  const radiusMath = Math.sqrt(acresBurned*43560/3.14159)
     return (
             <div className="map">
     <div className="google-map">
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyAaREDtn6kD4qFmd0whkkXWI9XYTw4gSqs' }}
-        defaultCenter={location}
+        defaultCenter={spot}
         defaultZoom={zoomLevel}
         onGoogleApiLoaded={({map, maps}) =>
          new maps.Circle({
@@ -29,8 +39,9 @@ const Map = () => {
            fillColor: '#FF0000',
            fillOpacity: 0.3,
            map,
-           center: location.center,
-           radius: 275,
+           
+           center: spot.center,
+          //  radius:radiusMath ,
          })}
       >
         <LocationPin
